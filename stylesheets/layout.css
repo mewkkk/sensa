@@ -951,6 +951,7 @@ textarea {
   position: relative;
   width: 100vw;
   height: 57.8vw;
+  min-height: 0;
   overflow: hidden;
 }
 
@@ -967,8 +968,8 @@ textarea {
   position: absolute;
   top: 22.7vw;
   left: 0.7vw;
-  z-index: 2;
   width: 82.6vw;
+  z-index: 2;
 }
 
 .kage-project-info {
@@ -984,11 +985,9 @@ textarea {
 }
 
 .kage-story {
-  display: flex;
-  flex-direction: column;
   width: 100vw;
   min-height: 34vw;
-  padding: 6vw 0 0;
+  padding: 6vw 0vw 0;
   color: var(--pink);
   font-size: var(--normal-text);
   font-weight: 500;
@@ -1002,20 +1001,16 @@ textarea {
 
 .kage-story-two {
   width: 56.5vw;
-  margin-top: -2.5vh;
   margin-left: 31vw;
+  margin-top: -2.5vh;
 }
 
 .photo-scroll {
-  width: 100vw;
-  padding: 3vw 0 8vw;
-  overflow: hidden;
+  position: relative;
+  width: 130vw;
+  height: 60vw;
 }
 
-.photo-window {
-  width: 100vw;
-  overflow: visible;
-}
 
 .photo-move {
   display: flex;
@@ -1032,24 +1027,20 @@ textarea {
 }
 
 .plant-place {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 5vw 3vw;
+  position: relative;
   width: 100vw;
-  padding: 0 2vw 10vw;
+  min-height: 83vw;
 }
 
 .plant-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: absolute;
   outline: none;
   text-align: center;
 }
 
 .plant-photo {
+  position: relative;
+  z-index: 2;
   transition:
     filter 0.35s ease,
     transform 0.35s ease;
@@ -1063,11 +1054,17 @@ textarea {
 }
 
 .plant-info {
+  position: absolute;
+  z-index: 3;
   width: 22vw;
-  margin-top: 1.6vw;
   color: var(--dark);
   font-size: var(--normal-text);
   line-height: 1.25;
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.3s ease,
+    transform 0.35s ease;
 }
 
 .plant-info h2 {
@@ -1082,45 +1079,81 @@ textarea {
   text-align: left;
 }
 
+.plant-card:hover .plant-info,
+.plant-card:focus .plant-info,
+.plant-card:focus-within .plant-info {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .plant-pine {
-  order: 1;
+  top: -30vw;
+  left: 5vw;
   width: 42.7vw;
-  margin-top: -28vw;
 }
 
 .plant-maple {
-  order: 2;
+  top: -30vw;
+  right: 7.2vw;
   width: 46.3vw;
-  margin-top: -28vw;
 }
 
 .plant-sedge {
-  order: 3;
+  top: 0vw;
+  left: 2.5vw;
   width: 23.5vw;
 }
 
 .plant-hydrangea {
-  order: 4;
+  top: 0vw;
+  left: 38.7vw;
   width: 22.6vw;
 }
 
 .plant-heuchera {
-  order: 5;
+  top: 0vw;
+  right: 3.8vw;
   width: 23.9vw;
 }
 
-.plant-pine .plant-info,
-.plant-maple .plant-info {
+.plant-pine .plant-info {
+  top: 55vw;
+  left: 15.5vw;
   width: 26vw;
 }
 
+.plant-maple .plant-info {
+  top: 55vw;
+  left: 11vw;
+  width: 25vw;
+}
+
+.plant-sedge .plant-info {
+  top: 35vw;
+  left: 0;
+  width: 21vw;
+}
+
+.plant-hydrangea .plant-info {
+  top: 35vw;
+  left: 0;
+  width: 22vw;
+}
+
+.plant-heuchera .plant-info {
+  top: 35vw;
+  right: 0;
+  width: 21vw;
+}
+
 .plant-author {
-  flex: 0 0 100vw;
-  order: 6;
+  position: absolute;
+  bottom: 3vw;
+  left: 50%;
   color: var(--pink);
   font-size: 2.2vw;
   font-weight: 700;
-  text-align: center;
+  transform: translateX(-50%);
 }
 
 .merch-hero {
